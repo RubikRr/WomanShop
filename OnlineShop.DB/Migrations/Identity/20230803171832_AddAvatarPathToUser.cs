@@ -1,0 +1,29 @@
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace OnlineShop.DB.Migrations.Identity
+{
+    /// <inheritdoc />
+    public partial class AddAvatarPathToUser : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.AddColumn<string>(
+                name: "AvatarPath",
+                table: "AspNetUsers",
+                type: "nvarchar(max)",
+                defaultValue: "images/accounts/avatars/default.jpg",
+                nullable: true);
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropColumn(
+                name: "AvatarPath",
+                table: "AspNetUsers");
+        }
+    }
+}

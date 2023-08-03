@@ -7,7 +7,7 @@
 else
 {
     <h1> Личный кабинет</h1>
-    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" style="width: 150px;"alt="Avatar" />
+    <img src=@Model.AvatarPath class="rounded-circle" style="width: 150px;"alt="Avatar" />
     <h1>@(Model.UserName ?? "-")</h1>
     <h1>@(Model.Email ?? "-")</h1>
     <h1>@(Model.PhoneNumber ?? "-")</h1>

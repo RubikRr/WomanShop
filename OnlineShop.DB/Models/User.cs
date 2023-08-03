@@ -9,6 +9,6 @@ namespace OnlineShop.DB.Models
 {
     public class User:IdentityUser
     {
-
+        public string? AvatarPath { get; set; }
     }
 }
