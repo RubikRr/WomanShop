@@ -106,15 +106,15 @@ namespace OnlineShop.DB.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b422ac72-39b5-41c9-851e-95d6a18ad191"),
+                            Id = new Guid("80a68192-9ebc-4a5d-a085-6b344c038e43"),
                             ImagePath = "/images/products/image1.png",
-                            ProductId = new Guid("8001a098-bf36-4fb7-9b46-c3c21102e288")
+                            ProductId = new Guid("efd8e995-e8b8-4d13-b401-00c205af72d6")
                         },
                         new
                         {
-                            Id = new Guid("ade8cac6-89f9-48e7-9666-cc3109ab9a06"),
+                            Id = new Guid("12f70823-456e-417d-a6c9-db7bac687a59"),
                             ImagePath = "/images/products/image2.png",
-                            ProductId = new Guid("8001a098-bf36-4fb7-9b46-c3c21102e288")
+                            ProductId = new Guid("efd8e995-e8b8-4d13-b401-00c205af72d6")
                         });
                 });
 
@@ -168,7 +168,7 @@ namespace OnlineShop.DB.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8001a098-bf36-4fb7-9b46-c3c21102e288"),
+                            Id = new Guid("efd8e995-e8b8-4d13-b401-00c205af72d6"),
                             Cost = 3750.50m,
                             Description = "Крутой пиджак для крутой леди",
                             ImagePath = "/images/products/image1.png",

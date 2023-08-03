@@ -43,7 +43,8 @@ namespace OnlineShop.DB.Migrations.Identity
                     TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
                     LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
+                    AccessFailedCount = table.Column<int>(type: "int", nullable: false),
+                    AvatarPath=table.Column<string>(type:"nvarchar(512)",nullable: true)
                 },
                 constraints: table =>
                 {
