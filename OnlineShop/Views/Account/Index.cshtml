@@ -1,16 +1,80 @@
 ﻿@using OnlineShop.DB.Models;
-@model User
+@model UserViewModel
 @if (Model == null)
 {
-    <h1>Пользователь убежал</h1>   
+    <h1>Пользователь убежал</h1>
 } 
 else
 {
-    <h1> Личный кабинет</h1>
-    <img src=@Model.AvatarPath class="rounded-circle" style="width: 150px;"alt="Avatar" />
-    <h1>@(Model.UserName ?? "-")</h1>
-    <h1>@(Model.Email ?? "-")</h1>
-    <h1>@(Model.PhoneNumber ?? "-")</h1>
-    @*<h1>@(Model. ?? "-")</h1>*@
+    
+<div class="row">
+    
+    <div class="col-9">
+        @if (Model == null)
+        {
+             <h1>Ппользователь убежал</h1>   
+        }
+        else
+        {
+         <img src=@(string.IsNullOrEmpty(Model.AvatarPath)?"images/accounts/avatars/default.jpg" :Model.AvatarPath) class="rounded-circle" style="width: 150px;" alt="Avatar" />
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="w-50">Пользователь @Model.Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>Фамилия </td>
+                        <td>@(Model?.Name ?? "-")</td>
+                    </tr>
+                    <tr>
+                        <td>Email(логин)</td>
+                        <td>@(Model?.Email ?? "-")</td>
+                    </tr>
+                    <tr>
+                        <td>Роль</td>
+                        <td>@(Model?.RoleName ?? "-")</td>
+                    </tr>
+                    <tr>
+                        <td>Номер телефона</td>
+                        <td>@(Model?.Phone ?? "-")</td>
+                    </tr>
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                       <th colspan="1"></th>
+                       <th>
+                           <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle pull-right" 
+                                type="button" data-bs-toggle="dropdown" 
+                                aria-expanded="false">Действия</button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" 
+                                     asp-area="admin"
+                                        asp-controller="user"
+                                        asp-action="ResetPassword"
+                                        asp-route-userId=@Model.Id>Смена пароля</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item"
+                                        asp-area="admin"
+                                        asp-controller="user"
+                                        asp-action="update"
+                                        asp-route-userId=@Model.Id>Редактирование данных</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </th>
+                    </tr>
+                </tfoot>
+        </table>
+    }
+    </div>
+</div>
 }
 

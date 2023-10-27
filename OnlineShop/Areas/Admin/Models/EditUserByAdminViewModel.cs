@@ -1,15 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using WomanShop.Areas.Admin.Models;
 
-namespace WomanShop.Models
+namespace WomanShop.Areas.Admin.Models
 {
-    public class UserViewModel
+    public class EditUserByAdminViewModel
     {
         public string Id { get; set; }
         [Required(ErrorMessage = "Не указана почта")]
         [EmailAddress(ErrorMessage = "Введите валидный email")]
         public string Email { get; set; }
-   
+
         [Required(ErrorMessage = "Введите ваше имя")]
         public string Name { get; set; }
 
@@ -18,6 +17,5 @@ namespace WomanShop.Models
         [Required(ErrorMessage = "Задайте права пользователя")]
         public string RoleName { get; set; }
 
-        public string AvatarPath { get; set; }
-    }   
+    }
 }

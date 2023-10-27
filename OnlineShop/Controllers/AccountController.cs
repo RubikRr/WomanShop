@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.DB.Models;
+using WomanShop.Helpers;
 
 namespace WomanShop.Controllers
 {
@@ -15,8 +16,15 @@ namespace WomanShop.Controllers
         }
         public IActionResult Index(string userName)
         {
+          
             var user = userManager.FindByNameAsync(userName).Result;
-            return View(user);
+            if (user != null)
+            {
+                var userRoles = new List<string>(userManager.GetRolesAsync(user).Result);
+                return View(Mapping.ToUserViewModel(user, userRoles));
+            }
+           return RedirectToAction("Index","Home");
+
         }
     }
 }

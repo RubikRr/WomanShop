@@ -1,4 +1,5 @@
 ﻿using OnlineShop.DB.Models;
+using WomanShop.Areas.Admin.Models;
 using WomanShop.Models;
 
 namespace WomanShop.Helpers
@@ -117,11 +118,30 @@ namespace WomanShop.Helpers
                 Email = user.Email,
                 Name = user.UserName,
                 Phone = user.PhoneNumber,
+                AvatarPath=user.AvatarPath
+            };
+        }
+
+        public static EditUserByAdminViewModel ToEditUserbyAdminViewModel(User user)
+        {
+            return new EditUserByAdminViewModel
+            {
+                Id = user.Id,
+                Email = user.Email,
+                Name = user.UserName,
+                Phone = user.PhoneNumber,
             };
         }
         public static UserViewModel ToUserViewModel(User user,List<string> roles)
         {
             var newUser = ToUserViewModel(user);
+            newUser.RoleName = string.Join(" ", roles);
+            return newUser;
+        }
+
+        public static EditUserByAdminViewModel ToEditUserByAdminViewModel(User user, List<string> roles)
+        {
+            var newUser = ToEditUserbyAdminViewModel(user);
             newUser.RoleName = string.Join(" ", roles);
             return newUser;
         }

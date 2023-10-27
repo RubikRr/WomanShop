@@ -101,12 +101,12 @@ namespace WomanShop.Areas.Admin.Controllers
             if (user != null)
             {
                 var userRoles = new List<string>(await userManager.GetRolesAsync(user));
-                return View(Mapping.ToUserViewModel(user, userRoles));
+                return View(Mapping.ToEditUserByAdminViewModel(user, userRoles));
             }
             return View("Index");
         }
         [HttpPost]
-        public async Task<IActionResult> Update(UserViewModel user)
+        public async Task<IActionResult> Update(EditUserByAdminViewModel user)
         {
             var userUpdate = await userManager.FindByIdAsync(user.Id);
 
